@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Real Estate</title>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- <link href = "css/reset.css" type="text/css" rel="stylesheet"> -->
+    <link  href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <!--Navbar  -->
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li> <a href="index.html">Home</a> </li>
+          <li> <a href="./">Offers<span class="sr-only">(current)</span> </a></li>
+          <li> <a href="../navbar-fixed-top/"> Residential Projects</a> </li>
+          <li><a href="../navbar-fixed-top/"> Saved Offers</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
+  <!-- Jumbotron Section -->
+  <div class="jumbotron">
+    <!-- <h2>Professional Realestate</h2> -->
+    <div class="jumbo">
+        <div id="filter">
+          <!-- Select type from filter -->
+          <div class="select" class="selectType">
+            <div class="selection">
+            <p>Select type</p>
+            <select id="selectType" name="searchCategories" id="selectType">
+              <option  >Purchase</option>
+              <option >Rental</option>
+              <option >Both</option>
+            </select>
+            </div>
+          </div> <!-- Type Select from filter finish-->
+
+          <!-- Select Rooms from filter -->
+          <div class="select" class="selectRooms">
+            <div class="selection">
+                <p>Rooms</p>
+                <select id="selectRooms" name="searchCategories" class="selectRooms">
+                  <option >1</option>
+                  <option >2</option>
+                  <option >3</option>
+                  <option >4</option>
+                </select>
+              </div>
+          </div>  <!-- Select Rooms from filter finish-->
+
+          <!-- Select pet friendly from filter -->
+          <div class="select" class="petFriendly">
+            <div class="selection">
+              <p>Pet friendly</p>
+                <select id="petFriendly" name="searchCategories" class="selectRooms">
+                  <option >Yes</option>
+                  <option >No</option>
+                </select>
+            </div>
+          </div><!-- Select pet friendly from filter finish -->
+
+            <!-- Select Category from filter -->
+           <div class="select" class="selectCategory">
+             <div class="selection">
+                <p>Select Category</p>
+                <select id="selectCategory" name="searchCategories" class="selectRooms">
+                  <option >Appartments</option>
+                  <option >Houses</option>
+                </select>
+            </div>
+          </div>  <!-- Select Catgory from filter finish -->
+
+
+          <!-- Search Button from filter  -->
+          <div class="select" <class="selectCategory">
+            <div class="selection">
+               <p>Search</p>
+               <button type="button" name="button" class="btn btn-search searchButton" onclick="showSelected()"><i class="fa fa-search fa-fw"></i></button>
+           </div>
+         </div> <!-- Search Button from filter finish -->
+      </div>
+    </div>
+   </div>  <!-- Jumbotron Finish -->
+
+
+    <!-- Filtered Images will show -->
+   <div id="filtered">
+     <!-- <div id="filteredImage">
+
+     </div> -->
+     <!-- <div class="filteredDescription">
+       <h3>Best deals on the market</h3>
+       <p>Beneficiezi de consiliere și îndrumare până la finalul tranzacției. Fără comision de intermediere.</p>
+       <a href="#">450 offers right now <span class="arrow"> > </span></a>
+     </div> -->
+   </div> <!--filtered images finish-->
+
+
+  <!-- Make content hide when page search results are shown -->
+  <div id="hideContent">
+    <!-- Section 3 collumns presentation -->
+    <div class="container-fluid smallPresentation">
+    <div class="eachPresentation">
+      <div class="image">
+        <!-- <img src="photos/condo-2618421_640.jpg" alt="" height="250px" width="400px  "> -->
+      </div>
+      <div class="description">
+        <h3>Appartments in new buildings</h3>
+        <p>Beneficiezi de consiliere și îndrumare până la finalul tranzacției. Fără comision de intermediere.</p>
+        <a href="#">450 offers right now <span> > </span></a>
+      </div>
+    </div>
+    <div class="eachPresentation">
+      <div class="image">
+        <!-- <img src="photos/condo-2618421_640.jpg" alt="" height="250px" width="400px  "> -->
+      </div>
+      <div class="description">
+        <h3>Appartments in old buildings</h3>
+        <p>Beneficiezi de consiliere și îndrumare până la finalul tranzacției. Fără comision de intermediere.</p>
+        <a href="#">450 offers right now <span class="arrow"> > </span></a>
+      </div>
+    </div>
+    <div class="eachPresentation">
+      <div class="image">
+        <!-- <img src="photos/condo-2618421_640.jpg" alt="" height="250px" width="400px  "> -->
+      </div>
+      <div class="description">
+        <h3>Best deals on the market</h3>
+        <p>Beneficiezi de consiliere și îndrumare până la finalul tranzacției. Fără comision de intermediere.</p>
+        <a href="#">450 offers right now <span class="arrow"> > </span></a>
+      </div>
+    </div>
+    </div>
+
+
+
+    <!-- Residential buildings  -->
+    <div class="residential container-fluid">
+    <div class="residentialDescription">
+      <h3>Projects in residential buildings.</h3>
+      <p>All residential projects with 0% comission.Contact us <br> for viewing</p>
+      <p>91 available offers</p>
+    </div>
+    <div class="visitButton">
+        <button type="button" name="button" id="visitBtn"><p>Visit</p></button>
+    </div>
+
+    </div>
+
+
+    <!-- Offer Section -->
+    <div class="offer">
+    <div class="addOffer offerSection">
+      <a href=""> <h3>Add offer</h3> </a>
+      <p>Vrei să vinzi sau să închiriezi ? Apelează la consilierii noștri pentru o evaluare și promovare gratuită.</p>
+    </div>
+    <div class="sendApplication offerSection">
+      <a href=""> <h3>Send application</h3> </a>
+      <p>Vrei să vinzi sau să închiriezi ? Apelează la consilierii noștri pentru o evaluare și promovare gratuită.</p>
+    </div>
+    </div>
+  </div><!-- Hide page finish-->
+
+
+<!-- Footer -->
+  <footer>
+    <div class="help">
+        <h2>Need Help?</h2>
+        <ul>
+          <li> <a href="#">Help center</a> </li>
+          <li> <a href="#">Email Support</a> </li>
+          <li> <a href="#">Send feedback</a> </li>
+        </ul>
+    </div>
+
+    <div class="connect">
+      <h2>About us</h2>
+      <ul>
+        <li> <a href="#">Who we are</a> </li>
+        <li> <a href="#">Q & A</a> </li>
+        <li> <a href="#">Journey into fitness</a> </li>
+      </ul>
+    </div>
+
+    <div class="newsletter">
+      <h2>Joint our news letter</h2>
+      <form action="/action_page.php" id="letter">
+        <input type="text" name="fname" placeholder="Email"><br>
+        <input type="submit" value="Submit" id="joinNewsletter">
+      </form>
+    </div>
+  </footer><!-- footer -->
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </body>
+</html>
