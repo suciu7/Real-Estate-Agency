@@ -6,22 +6,32 @@ var properties = [
   rooms:2,
   pet:"Yes",
   category:"Appartments",
-  image:"url(./photos/condo-2618421_640.jpg)"
-
+  image:"url(./photos/condo-2618421_640.jpg)",
+  c:"1"
 },
 {
   type:"Purchase",
   rooms:2,
   pet:"Yes",
   category:"Appartments",
-  image:"url(./photos/condominium.jpg)"
+  image:"url(./photos/condominium.jpg)",
+  c:"2"
 },
 {
   type:"Purchase",
   rooms:1,
   pet:"Yes",
   category:"Appartments",
-  image:"url(./photos/pink-kettlebell.jpeg)"
+  image:"url(./photos/pink-kettlebell.jpeg)",
+  c:"3"
+},
+{
+  type:"Purchase",
+  rooms:2,
+  pet:"Yes",
+  category:"Appartments",
+  image:"url(./photos/pink-kettlebell.jpeg)",
+  c:"5"
 }
 ];
 
@@ -42,7 +52,7 @@ function createDivs(prop) {
   var div = document.createElement("div");
   div.setAttribute("class", "filteredImage");
   filtered.appendChild(div);
-  // append the image to the div
+
 
   // Hold the classes of the Divs that are beeing created in order to hold the images of each propertie
   var imageDiv = byClass("filteredImage");
@@ -55,7 +65,7 @@ function createDivs(prop) {
   var div = document.createElement("div");
   div.setAttribute("class", "type");
   filtered.appendChild(div);
-  // append the type to the div
+
 
   // Hold the classes of the Divs that are beeing created in order to hold the type of each propertie
   var propertieType = byClass("type");
@@ -69,7 +79,7 @@ function createDivs(prop) {
   var div = document.createElement("div");
   div.setAttribute("class", "rooms");
   filtered.appendChild(div);
-  // append the type to the div
+
 
   // Hold the classes of the Divs that are beeing created in order to hold the number of the rooms each propertie has
   var propertieRooms = byClass("rooms");
@@ -83,10 +93,11 @@ function createDivs(prop) {
   var div = document.createElement("div");
   div.setAttribute("class", "pet");
   filtered.appendChild(div);
-  // append the type to the div
+
 
   // Hold the classes of the Divs that are beeing created in order to hold if the properties are pet friendly
   var pet = byClass("pet");
+
 
   // Loop through the properties and add to the DOM if the properties are pet friendly
   for (var i = 0; i < pet.length; i++) {
@@ -97,45 +108,16 @@ function createDivs(prop) {
   var div = document.createElement("div");
   div.setAttribute("class", "category");
   filtered.appendChild(div);
-  // append the type to the div
+
 
   // Hold the classes of the Divs that are beeing created in order to hold the category of the propertie
   var category = byClass("category");
 
+// Loop through the properties and add to the DOM the category of the properties
   for (var i = 0; i < category.length; i++) {
          category[i].innerHTML = prop.category  ;
   }
-
 }
-
-
-// //Add the details of each propertie to the DOM
-// function chooseDetails() {
-//   // Loop through the properties and and to the DOM the details of each propertie
-//   for (var i = 0; i < imageDiv.length; i++) {
-//          imageDiv[i].style.backgroundImage = properties[i].image;
-//   }
-//
-//   // Loop through the properties and and to the DOM the type of each propertie
-//   for (var i = 0; i < propertieType.length; i++) {
-//          propertieType[i].innerHTML = properties[i].type;
-//   }
-//
-//   // Loop through the properties and and to the DOM the number of rooms of each propertie
-//   for (var i = 0; i < propertieRooms.length; i++) {
-//          propertieRooms[i].innerHTML = properties[i].rooms  ;
-//   }
-//
-//   // Loop through the properties and add to the DOM if the properties are pet friendly
-//   for (var i = 0; i < pet.length; i++) {
-//          pet[i].innerHTML = properties[i].pet  ;
-//   }
-//
-//   // Loop through the properties and and to the DOM the categoriy of each propertie
-//   for (var i = 0; i < category.length; i++) {
-//          category[i].innerHTML = properties[i].category  ;
-//   }
-// }
 
 
 function showSelected() {
@@ -149,7 +131,7 @@ function showSelected() {
     var selector = document.getElementById('selectRooms');
     var rooms = selector[selector.selectedIndex].value;
     parseInt(rooms);
-    console.log( typeof rooms);
+    // console.log( typeof rooms);
 
 
     // Select pet friendly from filter
@@ -164,25 +146,20 @@ function showSelected() {
      // console.log( typeof category);
 
      for (var i = 0; i < properties.length; i++) {
-         if (properties[i].type == type && properties[i].rooms == rooms && properties[i].pet == petFriendly && properties[i].category == category) {
-              // console.log(properties[i].image);
-              // var img = properties[i].image
-              // console.log(img);
+         if ( properties[i].type     == type &&
+              properties[i].rooms    == rooms &&
+              properties[i].pet      == petFriendly &&
+              properties[i].category == category){
+
               document.getElementById("hideContent").style.display = "none";
               document.getElementById("filtered").style.display = "block";
 
               createDivs(properties[i]);
          } else {
-           console.log("No properties");
+              console.log("No properties");
          }
        }
-       // chooseDetails()
      }
-
-
-
-
-
 
 
 
