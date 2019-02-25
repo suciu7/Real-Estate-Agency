@@ -145,21 +145,36 @@ function showSelected() {
     var category = selector[selector.selectedIndex].value;
      // console.log( typeof category);
 
-     for (var i = 0; i < properties.length; i++) {
-         if ( properties[i].type     == type &&
-              properties[i].rooms    == rooms &&
-              properties[i].pet      == petFriendly &&
-              properties[i].category == category){
+     var filteredProperties = [];
 
-              document.getElementById("hideContent").style.display = "none";
-              document.getElementById("filtered").style.display = "block";
+    for (var i = 0; i < properties.length; i++) {
+        if ( properties[i].type     == type &&
+            properties[i].rooms    == rooms &&
+            properties[i].pet      == petFriendly &&
+            properties[i].category == category){
 
-              createDivs(properties[i]);
-         } else {
-              console.log("No properties");
-         }
-       }
-     }
+            document.getElementById("hideContent").style.display = "none";
+            document.getElementById("filtered").style.display = "block";
+
+            filteredProperties.push(properties[i]);
+        } 
+    }
+
+    if (filteredProperties.length > 0) {
+      var filtered = document.getElementById("filtered");
+      while (filtered.firstChild) {
+        filtered.removeChild(filtered.firstChild);
+      }
+
+      for (var i = 0; i< filteredProperties.length; i++) {
+        createDivs(filteredProperties[i]);
+      }
+    } else {
+      console.log("No properties");
+    }
+    
+    
+}
 
 
 
